@@ -38,3 +38,20 @@ for (properties in person) {
 }
 
 //Add and delete properties of a object
+let person3 = {
+  _name: "Gabriela",
+  lastName: "Sanchez",
+  email: "gabrielasanchez@gmail.com",
+  age: 20,
+  fullName: function () {
+    return this._name + " " + this.lastName;
+  },
+};
+console.log(person3.fullName());
+//Adding properties
+person3.tel = 1234556;
+person3.tel = 9876543;
+console.log(person3);
+//Deleting properties
+delete person3.tel;
+console.log(person3);
