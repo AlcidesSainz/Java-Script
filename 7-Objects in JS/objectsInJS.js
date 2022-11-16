@@ -51,7 +51,7 @@ console.log(person3.fullName());
 //Adding properties
 person3.tel = 1234556;
 person3.tel = 9876543;
-console.log(person3);
+console.log(person3);2
 //Deleting properties
 delete person3.tel;
 console.log(person3);
