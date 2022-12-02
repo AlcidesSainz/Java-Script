@@ -32,11 +32,54 @@ class Order {
   constructor() {
     this._idOrder = ++Order.orderCounter;
     this._product = [];
-    this._addProductsCounter = 0;
+    //this._addProductsCounter = 0;
+  }
+  getidOrder() {
+    return this._idOrder;
+  }
+  addProduct(product) {
+    if (this._product.length < Order.MAX_PRODUCT) {
+      this._product.push(product);
+    } else {
+      console.log("Can't add more products");
+    }
+  }
+  total() {
+    let totalSells = 0;
+    for (let product of this._product) {
+      totalSells += product._price;
+    }
+    return totalSells;
+  }
+  showOrder() {
+    let orderProduct = " ";
+    for (let products of this._product) {
+      orderProduct += products.toString() + "\n";
+    }
+    console.log(
+      `Order: ${
+        this._idOrder
+      } Total: $${this.total()} \nProducts:\n${orderProduct}`
+    );
   }
 }
 
-let product1 = new Product("Pen", "1");
-let product2 = new Product("PC", "800");
-console.log(product1.toString());
-console.log(product2.toString());
+let product1 = new Product("Pen", 100);
+let product2 = new Product("PC", 800);
+let product3 = new Product("Laptop", 1000);
+let product4 = new Product("Cellphone", 500);
+let product5 = new Product("Door", 200);
+let product6 = new Product("Chair", 50);
+
+let order1 = new Order();
+order1.addProduct(product1);
+order1.addProduct(product2);
+order1.addProduct(product3);
+order1.addProduct(product4)
+order1.addProduct(product5)
+order1.addProduct(product6)
+order1.showOrder();
+
+let order2=new Order()
+order2.addProduct(product6)
+order2.showOrder()
